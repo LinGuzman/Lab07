@@ -2,7 +2,7 @@
 
 
 if (empty($_POST["oculto"]) || empty($_POST["txtNombre"]) || empty($_POST["txtnumero"])) {
-    header('Location: index.php?mensaje=falta');
+    header('Location: registrarNumeroC.php?mensaje=falta');
     exit();
 }
 
@@ -47,5 +47,5 @@ $producto = $sentencia->fetch(PDO::FETCH_OBJ);
     $context  = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
     $response = json_decode($result);
-    header('Location: agregarPromocion.php?codigo='.$producto->id_producto);
+    
 ?>

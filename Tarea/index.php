@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    
     <div class="box">
         <span style="--i:1;"><img src="img/image1.jpg" alt=""></span>
         <span style="--i:2;"><img src="img/image2.jpg" alt=""></span>
@@ -41,6 +41,7 @@
 ?>
 
 <div class="container mt-5">
+    
     <div class="row justify-content-center">
         <div class="col-md-7">
             <?php 
@@ -134,7 +135,7 @@
                                 <td><?php echo $dato->precio; ?></td>
                                 <td><?php echo $dato->stock; ?></td>
                                 <td><?php echo $dato->fecha_ingreso; ?></td>
-                                <td><a class="text-primary" href="agregarPromocion.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-cursor"></i></a></td>
+                                <td><a href="listaC.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-cursor"></i></a></td>
                                 <td><a class="text-success" href="editar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="eliminar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-trash"></i></a></td>
                             </tr>
@@ -152,6 +153,7 @@
         </div>
         </section>
         <div class="col-md-4">
+        <a href="registrarNumeroC.php"><input type="submit" class="btn btn-success" value="Registrar Cliente" ></a>
             <div class="card">
                 <div class="card-header">
                     Ingresar datos:

@@ -1,8 +1,10 @@
 <?php include 'template/header.php' ?>
 
 <?php
+
 include_once "model/conexion.php";
-$codigo = $_GET['codigo'];
+$codigo = $_GET['producto'];
+$cliente = $_GET['codigo'];
 
 $sentencia = $bd->prepare("select * from producto where id = ?;");
 $sentencia->execute([$codigo]);
@@ -32,6 +34,7 @@ $promocion = $sentencia_promocion->fetchAll(PDO::FETCH_OBJ);
                     </div>
                     <div class="d-grid">
                     <input type="hidden" name="codigo" value="<?php echo $producto->id; ?>"><P></P>
+                    <input type="hidden" name="cliente" value="<?php echo $cliente; ?>"><P></P>
                         <input type="submit" class="btn btn-primary" value="Registrar">
                     </div>
                 </form>
@@ -60,7 +63,7 @@ $promocion = $sentencia_promocion->fetchAll(PDO::FETCH_OBJ);
                                     <td scope="row"><?php echo $dato->id; ?></td>
                                     <td><?php echo $dato->promocion; ?></td>
                                     <td><?php echo $dato->duracion; ?></td>
-                                    <td><a class="text-primary" href="registrarNumeroC.php"><i class="bi bi-cursor"></i></a></td>
+                                    <td><a class="text-primary" href="enviarMensaje.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-cursor"></i></a></td>
                                 </tr>
                             <?php
                             }
